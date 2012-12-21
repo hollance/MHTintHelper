@@ -4,16 +4,14 @@
 static const NSInteger MHTintHelperTag = 77777777;
 
 @interface MHTintHelper ()
-@property (nonatomic, strong) NSArray  *items;
-@property (nonatomic, strong) UISlider *redSlider;
-@property (nonatomic, strong) UILabel  *redLabel;
-@property (nonatomic, strong) UISlider *greenSlider;
-@property (nonatomic, strong) UILabel  *greenLabel;
-@property (nonatomic, strong) UISlider *blueSlider;
-@property (nonatomic, strong) UILabel  *blueLabel;
+@property (nonatomic, strong) NSArray *items;
 @end
 
 @implementation MHTintHelper
+{
+	UISlider *_sliders[3];
+	UILabel *_labels[3];
+}
 
 + (void)showInView:(UIView *)view forItem:(id)item
 {
@@ -22,11 +20,12 @@ static const NSInteger MHTintHelperTag = 77777777;
 
 + (void)showInView:(UIView *)view forItems:(NSArray *)items
 {
-	MHTintHelper *helper = [[MHTintHelper alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 120.0f)];
+	MHTintHelper *helper = [[MHTintHelper alloc] initWithFrame:CGRectMake(0.0f, 0.0f, 320.0f, 140.0f)];
 	helper.items = items;
 	helper.tag = MHTintHelperTag;
 	helper.center = CGPointMake(view.bounds.size.width/2.0f, view.bounds.size.height/2.0f);
 	[view addSubview:helper];
+	[helper update];
 }
 
 + (NSInteger)tag
@@ -45,39 +44,29 @@ static const NSInteger MHTintHelperTag = 77777777;
 
 		for (int t = 0; t < 3; ++t)
 		{
-			UISlider *theSlider = [[UISlider alloc] initWithFrame:CGRectMake(0.0f, 10.0f + t*40.0f, 256.0f, 23.0f)];
+			UISlider *theSlider = [[UISlider alloc] initWithFrame:CGRectMake(10.0f, 10.0f + t*32.0f, 300.0f, 22.0f)];
 			theSlider.minimumValue = 0.0f;
 			theSlider.maximumValue = 1.0f;
 			theSlider.value = 0.5f;
 			theSlider.autoresizingMask = 0;
 			[theSlider addTarget:self action:@selector(sliderMoved:) forControlEvents:UIControlEventValueChanged];
 			[self addSubview:theSlider];
+			_sliders[t] = theSlider;
 
-			UILabel *theLabel = [[UILabel alloc] initWithFrame:CGRectMake(256.0f, 10.0f + t*40.0f, 64.0f, 23.0f)];
-			theLabel.font = [UIFont systemFontOfSize:11.0f];
-			theLabel.backgroundColor = [UIColor clearColor];
+			UILabel *theLabel = [[UILabel alloc] initWithFrame:CGRectZero];
+			theLabel.font = [UIFont systemFontOfSize:12.0f];
+			theLabel.textColor = [UIColor whiteColor];
+			theLabel.backgroundColor = [UIColor blackColor];
 			theLabel.lineBreakMode = UILineBreakModeClip;
+			theLabel.textAlignment = UITextAlignmentCenter;
 			theLabel.autoresizingMask = 0;
 			[self addSubview:theLabel];
-
-			if (t == 0)
-			{
-				self.redSlider = theSlider;
-				self.redLabel = theLabel;
-			}
-			else if (t == 1)
-			{
-				self.greenSlider = theSlider;
-				self.greenLabel = theLabel;
-			}
-			else
-			{
-				self.blueSlider = theSlider;
-				self.blueLabel = theLabel;
-			}
+			_labels[t] = theLabel;
 		}
-
-		[self update];
+		
+		_labels[0].frame = CGRectMake( 10.0f, 108.0f,  76.0f, 22.0f);
+		_labels[1].frame = CGRectMake( 94.0f, 108.0f,  60.0f, 22.0f);
+		_labels[2].frame = CGRectMake(162.0f, 108.0f, 148.0f, 22.0f);
 	}
 	return self;
 }
@@ -89,22 +78,23 @@ static const NSInteger MHTintHelperTag = 77777777;
 
 - (void)update
 {
-	UIColor *color = [UIColor colorWithRed:self.redSlider.value green:self.greenSlider.value blue:self.blueSlider.value alpha:1.0f];
+	UIColor *color = [UIColor colorWithRed:_sliders[0].value green:_sliders[1].value blue:_sliders[2].value alpha:1.0f];
 	self.backgroundColor = color;
 
-	self.redLabel.text = [NSString stringWithFormat:@"%d=%g", (int)roundf(self.redSlider.value*255.0f), self.redSlider.value];
-	self.greenLabel.text = [NSString stringWithFormat:@"%d=%g", (int)roundf(self.greenSlider.value*255.0f), self.greenSlider.value];
-	self.blueLabel.text = [NSString stringWithFormat:@"%d=%g", (int)roundf(self.blueSlider.value*255.0f), self.blueSlider.value];
+	_labels[0].text = [NSString stringWithFormat:@"%d %d %d",
+		(int)roundf(_sliders[0].value*255.0f),
+		(int)roundf(_sliders[1].value*255.0f),
+		(int)roundf(_sliders[2].value*255.0f)];
 
-	UIColor *textColor;
-	if (self.redSlider.value + self.greenSlider.value + self.blueSlider.value < 1.5f)
-		textColor = [UIColor whiteColor];
-	else
-		textColor = [UIColor blackColor];
+	_labels[1].text = [NSString stringWithFormat:@"#%02X%02X%02X",
+		(int)roundf(_sliders[0].value*255.0f),
+		(int)roundf(_sliders[1].value*255.0f),
+		(int)roundf(_sliders[2].value*255.0f)];
 
-	self.redLabel.textColor = textColor;
-	self.greenLabel.textColor = textColor;
-	self.blueLabel.textColor = textColor;
+	_labels[2].text = [NSString stringWithFormat:@"%0.5f %0.5f %0.5f",
+		_sliders[0].value,
+		_sliders[1].value,
+		_sliders[2].value];
 
 	for (id item in self.items)
 	{
