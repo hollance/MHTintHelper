@@ -1,10 +1,7 @@
-/*!
- * \file MHTintHelper.h
- */
 
 #import <UIKit/UIKit.h>
 
-/*!
+/*
  * A tool that quickly lets you pick tint colors for navigation bars etc.
  *
  * Simply call showInView:forItem(s): to add the picker panel to your view,

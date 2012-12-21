@@ -14,4 +14,4 @@ To use:
         [MHTintHelper showInView:self.view forItem:self.navigationBar];
     }
 
-Works on iOS 4 and iOS 5 (you have to disable ARC for MHTintHelper.m).
+Requires at least iOS 5 and ARC.

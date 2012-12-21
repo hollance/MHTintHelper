@@ -1,9 +1,9 @@
 
 @interface ViewController : UIViewController
 
-@property (nonatomic, retain) IBOutlet UINavigationBar *navigationBar;
-@property (nonatomic, retain) IBOutlet UIToolbar *toolbar;
-@property (nonatomic, retain) IBOutlet UISegmentedControl *segmentedControl;
-@property (nonatomic, retain) IBOutlet UIBarButtonItem *barButtonItem;
+@property (nonatomic, strong) IBOutlet UINavigationBar *navigationBar;
+@property (nonatomic, strong) IBOutlet UIToolbar *toolbar;
+@property (nonatomic, strong) IBOutlet UISegmentedControl *segmentedControl;
+@property (nonatomic, strong) IBOutlet UIBarButtonItem *barButtonItem;
 
 @end

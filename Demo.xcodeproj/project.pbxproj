@@ -15,7 +15,8 @@
 		7B97BB371482B8F200B101FC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B97BB361482B8F200B101FC /* AppDelegate.m */; };
 		7B97BB3A1482B8F200B101FC /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B97BB391482B8F200B101FC /* ViewController.m */; };
 		7B97BB3D1482B8F200B101FC /* ViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B97BB3B1482B8F200B101FC /* ViewController.xib */; };
-		7B97BB451482B99200B101FC /* MHTintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B97BB441482B99200B101FC /* MHTintHelper.m */; };
+		7BAB2FC41684656500232B93 /* MHTintHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 7BAB2FC31684656500232B93 /* MHTintHelper.m */; };
+		7BAB2FC81684671000232B93 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 7BAB2FC71684671000232B93 /* Default-568h@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,8 +33,9 @@
 		7B97BB381482B8F200B101FC /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		7B97BB391482B8F200B101FC /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		7B97BB3C1482B8F200B101FC /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/ViewController.xib; sourceTree = "<group>"; };
-		7B97BB431482B99200B101FC /* MHTintHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MHTintHelper.h; sourceTree = SOURCE_ROOT; };
-		7B97BB441482B99200B101FC /* MHTintHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MHTintHelper.m; sourceTree = SOURCE_ROOT; };
+		7BAB2FC21684656500232B93 /* MHTintHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MHTintHelper.h; path = MHTintHelper/MHTintHelper.h; sourceTree = SOURCE_ROOT; };
+		7BAB2FC31684656500232B93 /* MHTintHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MHTintHelper.m; path = MHTintHelper/MHTintHelper.m; sourceTree = SOURCE_ROOT; };
+		7BAB2FC71684671000232B93 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +55,7 @@
 		7B97BB171482B8F200B101FC = {
 			isa = PBXGroup;
 			children = (
+				7BAB2FC01684655900232B93 /* MHTintHelper */,
 				7B97BB2C1482B8F200B101FC /* Demo */,
 				7B97BB251482B8F200B101FC /* Frameworks */,
 				7B97BB231482B8F200B101FC /* Products */,
@@ -82,8 +85,6 @@
 			children = (
 				7B97BB351482B8F200B101FC /* AppDelegate.h */,
 				7B97BB361482B8F200B101FC /* AppDelegate.m */,
-				7B97BB431482B99200B101FC /* MHTintHelper.h */,
-				7B97BB441482B99200B101FC /* MHTintHelper.m */,
 				7B97BB381482B8F200B101FC /* ViewController.h */,
 				7B97BB391482B8F200B101FC /* ViewController.m */,
 				7B97BB3B1482B8F200B101FC /* ViewController.xib */,
@@ -95,12 +96,23 @@
 		7B97BB2D1482B8F200B101FC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				7BAB2FC71684671000232B93 /* Default-568h@2x.png */,
 				7B97BB2E1482B8F200B101FC /* Demo-Info.plist */,
+				7B97BB341482B8F200B101FC /* Demo-Prefix.pch */,
 				7B97BB2F1482B8F200B101FC /* InfoPlist.strings */,
 				7B97BB321482B8F200B101FC /* main.m */,
-				7B97BB341482B8F200B101FC /* Demo-Prefix.pch */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		7BAB2FC01684655900232B93 /* MHTintHelper */ = {
+			isa = PBXGroup;
+			children = (
+				7BAB2FC21684656500232B93 /* MHTintHelper.h */,
+				7BAB2FC31684656500232B93 /* MHTintHelper.m */,
+			);
+			name = MHTintHelper;
+			path = Demo;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,6 +168,7 @@
 			files = (
 				7B97BB311482B8F200B101FC /* InfoPlist.strings in Resources */,
 				7B97BB3D1482B8F200B101FC /* ViewController.xib in Resources */,
+				7BAB2FC81684671000232B93 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -169,7 +182,7 @@
 				7B97BB331482B8F200B101FC /* main.m in Sources */,
 				7B97BB371482B8F200B101FC /* AppDelegate.m in Sources */,
 				7B97BB3A1482B8F200B101FC /* ViewController.m in Sources */,
-				7B97BB451482B99200B101FC /* MHTintHelper.m in Sources */,
+				7BAB2FC41684656500232B93 /* MHTintHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -241,10 +254,10 @@
 		7B97BB411482B8F200B101FC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WARNING_CFLAGS = "-Wall";
@@ -255,10 +268,10 @@
 		7B97BB421482B8F200B101FC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_ARC = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "Demo/Demo-Prefix.pch";
 				INFOPLIST_FILE = "Demo/Demo-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				RUN_CLANG_STATIC_ANALYZER = YES;
 				WARNING_CFLAGS = "-Wall";
@@ -285,6 +298,7 @@
 				7B97BB421482B8F200B101FC /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
